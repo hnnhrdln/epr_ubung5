@@ -50,19 +50,29 @@ def card_setup(number_of_players):
     time.sleep(2)
 
     amount_of_cards = len(cards) 
-    cards_per_player = int(amount_of_cards/number_of_players)
-    rest = amount_of_cards % number_of_players  #Stapel
-    print(cards)
-    print("------------------")
-    print("Amount of cards:",amount_of_cards)
-    print("Cards per player:",cards_per_player)
-    print("The rest is:",rest)
-    print("------------------")
+    if number_of_players == 2:
+        rest = 12
+        cards_per_players = 10
+        for i in range(0,number_of_players):
+                time.sleep(1)
+                print("Player",i+1,"has the following cards:")
+                print(cards[i*cards_per_player:(i+1)*cards_per_player])
+        print("Stapel: ", cards[20:32])
 
-    for i in range(0,number_of_players):
-        time.sleep(1)
-        print("Player",i+1,"has the following cards:")
-        print(cards[i*cards_per_player:(i+1)*cards_per_player])
+    else:
+        cards_per_player = int(amount_of_cards/number_of_players)
+        rest = amount_of_cards % number_of_players  #Stapel
+        print(cards)
+        print("------------------")
+        print("Amount of cards:",amount_of_cards)
+        print("Cards per player:",cards_per_player)
+        print("The rest is:",rest)
+        print("------------------")
+
+        for i in range(0,number_of_players):
+            time.sleep(1)
+            print("Player",i+1,"has the following cards:")
+            print(cards[i*cards_per_player:(i+1)*cards_per_player])
 
 if __name__ == '__main__':
     number_of_players = setup()
