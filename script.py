@@ -15,7 +15,7 @@ def setup():
         except ValueError:
             continue
 
-    while isinstance(number_of_players, int) == False or number_of_players <= 0:
+    while isinstance(number_of_players, int) == False or number_of_players < 2 or number_of_players > 8:
         number_of_players = int(input("How many players do you want to play with?"))
 
     for x in range(0, number_of_players):
