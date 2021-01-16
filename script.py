@@ -35,7 +35,7 @@ def setup():
     
     return number_of_players, players
 
-def card_setup(number_of_players):
+def card_setup(number_of_players, players):
     cards = ['7\u2665', '7\u2666', '7\u2663', '7\u2660',
     '8\u2665', '8\u2666', '8\u2663', '8\u2660',
     '9\u2665', '9\u2666', '9\u2663', '9\u2660',
@@ -51,31 +51,31 @@ def card_setup(number_of_players):
 
     amount_of_cards = len(cards) 
     if number_of_players == 2:
-        rest = cards[20:32]
+        rest = 12
         cards_per_player = 10
         for i in range(0,number_of_players):
                 time.sleep(1)
                 print("Player",i+1,"has the following cards:")
-                cards_hold = cards[i*cards_per_player:(i+1)*cards_per_player]
-                print(cards_hold)
-        print("Stapel: ", rest)
+                print(cards[i*cards_per_player:(i+1)*cards_per_player])
+                players[i]["cards"] = cards[i*cards_per_player:(i+1)*cards_per_player]
+                print(players[i])
+        print("Stapel: ", cards[20:32])
 
     else:
         cards_per_player = int(amount_of_cards/number_of_players)
-        rest = cards[len(cards)-(amount_of_cards % number_of_players):len(cards)]  #Stapel
+        rest = amount_of_cards % number_of_players  #Stapel
         print(cards)
         print("------------------")
         print("Amount of cards:",amount_of_cards)
         print("Cards per player:",cards_per_player)
+        print("The rest is:",rest)
         print("------------------")
 
         for i in range(0,number_of_players):
             time.sleep(1)
             print("Player",i+1,"has the following cards:")
-            cards_hold = cards[i*cards_per_player:(i+1)*cards_per_player]
-            print(cards_hold)
-        print("The rest is:",rest)
-        
+            print(cards[i*cards_per_player:(i+1)*cards_per_player])
+        print("The rest are:",cards[len(cards)-rest:len(cards)])
 
 def restart_exit():
     restart = input("\nDo you want to restart the program? [y/n] > ")
@@ -91,4 +91,4 @@ def check_for_quartet(cards):
 
 if __name__ == '__main__':
     number_of_players, players = setup()
-    card_setup(number_of_players)
+    card_setup(number_of_players, players)
