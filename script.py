@@ -89,6 +89,7 @@ def restart_exit():
         sys.exit(0)
 
 def check_for_quartet(cards):
+    counter = 0
     quartet =['7','8','9','10','J','Q','K','A']
     for x in quartet:
         result = [i for i in cards if i.startswith(x)]
