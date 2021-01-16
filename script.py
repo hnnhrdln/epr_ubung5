@@ -91,7 +91,6 @@ def restart_exit():
 def check_for_quartet(cards):
     quartet =['7','8','9','10','J','Q','K','A']
     for player in cards:
-        print(player["cards"]) #welche karten hatte der spieler davor
         for x in quartet:
             result = [i for i in player["cards"] if i.startswith(x)]
             if len(result) == 4:
@@ -100,9 +99,48 @@ def check_for_quartet(cards):
                     if n.startswith(x):
                         player["cards"].remove(n)
         print(player) #welche karten hatte der spieler danach
+    
+    return cards
 
+def implement_turn_logic(players):
+    people = []
+    for player in players:
+        people.append(player["name"])
+
+    quartet =['7','8','9','10','J','Q','K','A']
+    #HEARTS, DIAMONDS, CLUBS, SPADES = "\u2665", "\u2666", "\u2663", "\u2660"
+    color = ["HEARTS", "DIAMONDS", "CLUBS", "SPADES"]
+    
+    while True:
+        for player in players:
+            print("It's " +player["name"]+"'s turn.")
+            #ckech of pc
+            if player["player_or_pc"] == True: #mensch
+                who = input("Who do you want to take a card from?")
+
+                if who in people and who != player["name"]:
+                    which_number = input("Which number do you want?") #blablainput und so
+
+                    if which_number in quartet:
+                        which_color = input("Which color do you want?") #same blabla
+
+                        if which_color in color:
+                            print("alles gut gelaufen")
+                        else:
+                            print("falscher color inpout")
+                    else:
+                        print("Wrong number-input")
+
+
+                else:
+                    print("Again")     
+
+            else: #pc  
+                print("Its the pc's turn. Go, " +player["name"])         
+                
 
 if __name__ == '__main__':
     number_of_players, players = setup()
     players_setup = card_setup(number_of_players, players)
-    check_for_quartet(players_setup)
+    players_ckecked_for_quartet = check_for_quartet(players_setup)
+    implement_turn_logic(players_ckecked_for_quartet)
