@@ -29,11 +29,11 @@ def setup():
         elif player_or_pc == "pc":
             player_or_pc = False
 
-        player_tuple = (name, player_or_pc)
+        player_dict = {"name" : name, "player_or_pc": player_or_pc}
 
-        players.append(player_tuple)
+        players.append(player_dict)
     
-    return number_of_players
+    return number_of_players, players
 
 def card_setup(number_of_players):
     cards = ['7\u2665', '7\u2666', '7\u2663', '7\u2660',
@@ -84,6 +84,9 @@ def restart_exit():
         print("\nThe programm will me closed...")
         sys.exit(0)
 
+def check_for_quartet(cards):
+    print('hallo')
+
 if __name__ == '__main__':
-    number_of_players = setup()
+    number_of_players, players = setup()
     card_setup(number_of_players)
