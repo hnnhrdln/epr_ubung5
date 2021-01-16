@@ -118,11 +118,19 @@ def implement_turn_logic(players):
             if player["player_or_pc"] == True: #mensch
                 who = input("Who do you want to take a card from?")
 
+                while who not in people or who == player["name"]:
+                    who = input("Select another player?")
+
+
                 if who in people and who != player["name"]:
                     which_number = input("Which number do you want?") #blablainput und so
+                    while which_number not in quartet:
+                        which_number = input("Select another number?")
 
                     if which_number in quartet:
                         which_color = input("Which color do you want?") #same blabla
+                        while which_color not in color:
+                            which_color = input("Select another number?")
 
                         if which_color in color:
                             print("alles gut gelaufen")
