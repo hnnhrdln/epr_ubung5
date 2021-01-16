@@ -29,7 +29,7 @@ def setup():
         elif player_or_pc == "pc":
             player_or_pc = False
 
-        player_dict = {"name" : name, "player_or_pc": player_or_pc}
+        player_dict = {"name" : name, "player_or_pc": player_or_pc, "counter" : 0}
 
         players.append(player_dict)
     
