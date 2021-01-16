@@ -33,7 +33,7 @@ def setup():
 
         players.append(player_tuple)
 
-def shuffle():
+def _shuffle():
     cards = ['7\u2665', '7\u2666', '7\u2663', '7\u2660',
     '8\u2665', '8\u2666', '8\u2663', '8\u2660',
     '9\u2665', '9\u2666', '9\u2663', '9\u2660',
@@ -64,4 +64,4 @@ def shuffle():
 
 if __name__ == '__main__':
     setup()
-    shuffle()
+    _shuffle()
