@@ -75,6 +75,15 @@ def card_setup(number_of_players):
             print(cards[i*cards_per_player:(i+1)*cards_per_player])
         print("The rest are:",cards[len(cards)-rest:len(cards)])
 
+def restart_exit():
+    restart = input("\nDo you want to restart the program? [y/n] > ")
+
+    if restart == "y":
+        os.execl(sys.executable, os.path.abspath(__file__), *sys.argv) 
+    else:
+        print("\nThe programm will me closed...")
+        sys.exit(0)
+
 if __name__ == '__main__':
     number_of_players = setup()
     card_setup(number_of_players)
