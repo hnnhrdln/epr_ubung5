@@ -91,15 +91,19 @@ def restart_exit():
 def check_for_quartet(cards):
     counter = 0
     quartet =['7','8','9','10','J','Q','K','A']
-    for x in quartet:
-        result = [i for i in cards if i.startswith(x)]
-        if len(result) == 4:
-            counter +=1    
-            print(counter)
-            print(result)
-            for n in cards[:]:
-                if n.startswith(x):
-                    cards.remove(n)
+    for player in cards:
+        print(player["cards"])
+        for x in quartet:
+            result = [i for i in player["cards"] if i.startswith(x)]
+            if len(result) == 4:
+                counter +=1    
+                print(counter)
+                print(result)
+                for n in player["cards"]:
+                    if n.startswith(x):
+                        player["cards"].remove(n)
+            else: 
+                print("No quartets so far.")
 
 
 if __name__ == '__main__':
