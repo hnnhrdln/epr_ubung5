@@ -52,7 +52,7 @@ def card_setup(number_of_players):
     amount_of_cards = len(cards) 
     if number_of_players == 2:
         rest = 12
-        cards_per_players = 10
+        cards_per_player = 10
         for i in range(0,number_of_players):
                 time.sleep(1)
                 print("Player",i+1,"has the following cards:")
