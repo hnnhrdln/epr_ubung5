@@ -73,6 +73,7 @@ def card_setup(number_of_players):
             time.sleep(1)
             print("Player",i+1,"has the following cards:")
             print(cards[i*cards_per_player:(i+1)*cards_per_player])
+        print("The rest are:",cards[len(cards)-rest:len(cards)])
 
 if __name__ == '__main__':
     number_of_players = setup()
