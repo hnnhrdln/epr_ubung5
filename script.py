@@ -2,7 +2,7 @@
 __author__ = "5641727, Redelin, 6544078, Kervella"
 
 from random import shuffle
-import time, os, sys
+import time, os, sys, random
 
 
 def setup():
@@ -108,55 +108,97 @@ def implement_turn_logic(players):
         people.append(player["name"])
 
     quartet =['7','8','9','10','J','Q','K','A']
-    #HEARTS, DIAMONDS, CLUBS, SPADES = "\u2665", "\u2666", "\u2663", "\u2660"
     color = ["HEARTS", "DIAMONDS", "CLUBS", "SPADES"]
     
-    while True:
-        for player in players:
-            print("It's " +player["name"]+"'s turn.")
-            #ckech of pc
-            if player["player_or_pc"] == True: #mensch
-                who = input("Who do you want to take a card from?")
+    for player in players:
+        print("It's " +player["name"]+"'s turn.")
+        #ckech of pc
+        if player["player_or_pc"] == True: #mensch
+            who = input("Who do you want to take a card from?")
 
-                while who not in people or who == player["name"]:
-                    who = input("Select another player?")
+            while who not in people or who == player["name"]:
+                who = input("Select another player?")
 
-                if who in people and who != player["name"]:
-                    which_number = input("Which number do you want?") #blablainput und so
-                    while which_number not in quartet:
-                        which_number = input("Select another number?")
+            if who in people and who != player["name"]:
+                which_number = input("Which number do you want?") #blablainput und so
+                while which_number not in quartet:
+                    which_number = input("Select another number?")
 
-                    if which_number in quartet:
-                        which_color = input("Which color do you want?") #same blabla
-                        while which_color not in color:
-                            which_color = input("Select another color?")
+                if which_number in quartet:
+                    which_color = input("Which color do you want?") #same blabla
+                    while which_color not in color:
+                        which_color = input("Select another color?")
 
-                        if which_color in color:
-                            if which_color == "HEARTS":
-                                which_color = "\u2665"
-                            elif which_color == "DIAMONDS":
-                                which_color = "\u2666"
-                            elif which_color == "CLUBS":
-                                which_color = "\u2663"
-                            elif which_color == "SPADES":
-                                which_color = "\u2660"
-                            which_card = which_number + which_color
-                            print(which_card)
-                        else:
-                            print("falscher color inpout")
+                    if which_color in color:
+                        if which_color == "HEARTS":
+                            which_color = "\u2665"
+                        elif which_color == "DIAMONDS":
+                            which_color = "\u2666"
+                        elif which_color == "CLUBS":
+                            which_color = "\u2663"
+                        elif which_color == "SPADES":
+                            which_color = "\u2660"
+                        which_card = which_number + which_color
+                        print(which_card)
+
+                        check_card(who, which_card,players, player)
+                        check_for_quartet(players)
+
                     else:
-                        print("Wrong number-input")
-
-
+                        print("falscher color inpout")
                 else:
-                    print("Again")     
-            if which_number
-            else: #pc  
-                print("Its the pc's turn. Go, " +player["name"])         
+                    print("Wrong number-input")
+
+
+            else:
+                print("Again")     
+
+        else: #pc  
+            print("Selecting Bot Choices")        
                 
+            who_pc = random.choice(people)
+            while who_pc == player["name"]:
+                who_pc = random.choice(people)
+            which_color_pc = random.choice(color)
+            which_number_pc = random.choice(quartet)
+
+            print(who_pc, which_color_pc, which_number_pc)  
+
+            if which_color_pc == "HEARTS":
+                which_color_pc = "\u2665"
+            elif which_color_pc == "DIAMONDS":
+                which_color_pc = "\u2666"
+            elif which_color_pc == "CLUBS":
+                which_color_pc = "\u2663"
+            elif which_color_pc == "SPADES":
+                which_color_pc = "\u2660"
+            which_card_pc = which_number_pc+ which_color_pc
+            print(which_card_pc)  
+
+            check_card(who_pc, which_card_pc, players, player)
+            check_for_quartet(players)
+    
+
+def check_card(who, which_card, players, player):  
+    for element in players:
+        if element["name"] == who:
+            if which_card in element["cards"]:
+                print("IS in deck")
+                element["cards"].remove(which_card)
+                player["cards"].append(which_card)
+                print(element["cards"])
+                print(player["cards"])
+                return True
+            else:
+                print("Sorry, they dont have that card.")
+                return False
+
+
+
 
 if __name__ == '__main__':
     number_of_players, players = setup()
     players_setup = card_setup(number_of_players, players)
     players_ckecked_for_quartet = check_for_quartet(players_setup)
-    implement_turn_logic(players_ckecked_for_quartet)
+    while True:
+        implement_turn_logic(players_ckecked_for_quartet)
