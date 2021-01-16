@@ -121,7 +121,6 @@ def implement_turn_logic(players):
                 while who not in people or who == player["name"]:
                     who = input("Select another player?")
 
-
                 if who in people and who != player["name"]:
                     which_number = input("Which number do you want?") #blablainput und so
                     while which_number not in quartet:
@@ -130,10 +129,19 @@ def implement_turn_logic(players):
                     if which_number in quartet:
                         which_color = input("Which color do you want?") #same blabla
                         while which_color not in color:
-                            which_color = input("Select another number?")
+                            which_color = input("Select another color?")
 
                         if which_color in color:
-                            print("alles gut gelaufen")
+                            if which_color == "HEARTS":
+                                which_color = "\u2665"
+                            elif which_color == "DIAMONDS":
+                                which_color = "\u2666"
+                            elif which_color == "CLUBS":
+                                which_color = "\u2663"
+                            elif which_color == "SPADES":
+                                which_color = "\u2660"
+                            which_card = which_number + which_color
+                            print(which_card)
                         else:
                             print("falscher color inpout")
                     else:
@@ -142,7 +150,7 @@ def implement_turn_logic(players):
 
                 else:
                     print("Again")     
-
+            if which_number
             else: #pc  
                 print("Its the pc's turn. Go, " +player["name"])         
                 
