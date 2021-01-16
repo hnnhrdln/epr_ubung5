@@ -32,8 +32,10 @@ def setup():
         player_tuple = (name, player_or_pc)
 
         players.append(player_tuple)
+    
+    return number_of_players
 
-def _shuffle():
+def card_setup(number_of_players):
     cards = ['7\u2665', '7\u2666', '7\u2663', '7\u2660',
     '8\u2665', '8\u2666', '8\u2663', '8\u2660',
     '9\u2665', '9\u2666', '9\u2663', '9\u2660',
@@ -60,8 +62,8 @@ def _shuffle():
     for i in range(0,number_of_players):
         time.sleep(1)
         print("Player",i+1,"has the following cards:")
-        print(cards[i*cards_per_player:(i+1)*cards_per_player])
+        print(cards[icards_per_player:(i+1)cards_per_player])
 
 if __name__ == '__main__':
-    setup()
-    _shuffle()
+    number_of_players = setup()
+    card_setup(number_of_players)
