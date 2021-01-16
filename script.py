@@ -2,7 +2,7 @@
 __author__ = "5641727, Redelin, 6544078, Kervella"
 
 from random import shuffle
-import time
+import time, os, sys
 
 
 def setup():
