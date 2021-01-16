@@ -4,7 +4,33 @@ __author__ = "5641727, Redelin, 6544078, Kervella"
 from random import shuffle
 import time
 
-amount_of_players = 5
+players = []
+
+    while True:
+        try:
+            number_of_players = int(input("How many players do you want to play with?"))
+            break
+        except ValueError:
+            continue
+
+    while isinstance(number_of_players, int) == False or number_of_players <= 0:
+        number_of_players = int(input("How many players do you want to play with?"))
+
+    for x in range(0, number_of_players):
+        name = input("What is the name of player "+str(x+1)+"?\n")
+        player_or_pc = input("Who is the player played by? [me/pc]\n")
+        while player_or_pc != "me" and player_or_pc != "pc":
+            player_or_pc = input("Try again! Who is the player played by? [me/pc]\n")
+
+        if player_or_pc == "me":
+            player_or_pc = True
+        elif player_or_pc == "pc":
+            player_or_pc = False
+
+        player_tuple = (name, player_or_pc)
+
+        players.append(player_tuple)
+
 
 cards = ['7\u2665', '7\u2666', '7\u2663', '7\u2660',
 '8\u2665', '8\u2666', '8\u2663', '8\u2660',
@@ -20,8 +46,8 @@ print("shuffling the cards ...")
 time.sleep(2)
 
 amount_of_cards = len(cards) 
-cards_per_player = int(amount_of_cards/amount_of_players)
-rest = amount_of_cards % amount_of_players  #Stapel
+cards_per_player = int(amount_of_cards/number_of_players)
+rest = amount_of_cards % number_of_players  #Stapel
 print(cards)
 print("------------------")
 print("Amount of cards:",amount_of_cards)
@@ -29,7 +55,7 @@ print("Cards per player:",cards_per_player)
 print("The rest is:",rest)
 print("------------------")
 
-for i in range(0,amount_of_players):
+for i in range(0,number_of_players):
     time.sleep(1)
     print("Player",i+1,"has the following cards:")
     print(cards[icards_per_player:(i+1)cards_per_player])
