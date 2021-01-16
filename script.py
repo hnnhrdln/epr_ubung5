@@ -96,7 +96,7 @@ def check_for_quartet(cards):
             result = [i for i in player["cards"] if i.startswith(x)]
             if len(result) == 4:
                 player["counter"] +=1    
-                for n in player["cards"]:
+                for n in player["cards"][:]:
                     if n.startswith(x):
                         player["cards"].remove(n)
         print(player) #welche karten hatte der spieler danach
