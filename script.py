@@ -77,6 +77,8 @@ def card_setup(number_of_players, players):
             players[i]["cards"] = cards[i*cards_per_player:(i+1)*cards_per_player]
         print("The rest are:",cards[len(cards)-rest:len(cards)])
 
+    return players
+
 def restart_exit():
     restart = input("\nDo you want to restart the program? [y/n] > ")
 
@@ -89,6 +91,8 @@ def restart_exit():
 def check_for_quartet(cards):
     print('hallo')
 
+
 if __name__ == '__main__':
     number_of_players, players = setup()
-    card_setup(number_of_players, players)
+    players_setup = card_setup(number_of_players, players)
+    check_for_quartet(players_setup)
