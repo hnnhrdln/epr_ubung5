@@ -51,29 +51,31 @@ def card_setup(number_of_players):
 
     amount_of_cards = len(cards) 
     if number_of_players == 2:
-        rest = 12
+        rest = cards[20:32]
         cards_per_player = 10
         for i in range(0,number_of_players):
                 time.sleep(1)
                 print("Player",i+1,"has the following cards:")
-                print(cards[i*cards_per_player:(i+1)*cards_per_player])
-        print("Stapel: ", cards[20:32])
+                cards_hold = cards[i*cards_per_player:(i+1)*cards_per_player]
+                print(cards_hold)
+        print("Stapel: ", rest)
 
     else:
         cards_per_player = int(amount_of_cards/number_of_players)
-        rest = amount_of_cards % number_of_players  #Stapel
+        rest = cards[len(cards)-(amount_of_cards % number_of_players):len(cards)]  #Stapel
         print(cards)
         print("------------------")
         print("Amount of cards:",amount_of_cards)
         print("Cards per player:",cards_per_player)
-        print("The rest is:",rest)
         print("------------------")
 
         for i in range(0,number_of_players):
             time.sleep(1)
             print("Player",i+1,"has the following cards:")
-            print(cards[i*cards_per_player:(i+1)*cards_per_player])
-        print("The rest are:",cards[len(cards)-rest:len(cards)])
+            cards_hold = cards[i*cards_per_player:(i+1)*cards_per_player]
+            print(cards_hold)
+        print("The rest is:",rest)
+        
 
 def restart_exit():
     restart = input("\nDo you want to restart the program? [y/n] > ")
