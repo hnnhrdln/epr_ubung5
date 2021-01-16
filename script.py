@@ -58,7 +58,6 @@ def card_setup(number_of_players, players):
                 print("Player",i+1,"has the following cards:")
                 print(cards[i*cards_per_player:(i+1)*cards_per_player])
                 players[i]["cards"] = cards[i*cards_per_player:(i+1)*cards_per_player]
-                print(players[i])
         print("Stapel: ", cards[20:32])
 
     else:
@@ -75,6 +74,7 @@ def card_setup(number_of_players, players):
             time.sleep(1)
             print("Player",i+1,"has the following cards:")
             print(cards[i*cards_per_player:(i+1)*cards_per_player])
+            players[i]["cards"] = cards[i*cards_per_player:(i+1)*cards_per_player]
         print("The rest are:",cards[len(cards)-rest:len(cards)])
 
 def restart_exit():
