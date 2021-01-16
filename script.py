@@ -45,7 +45,7 @@ def card_setup(number_of_players, players):
     'K\u2665', 'K\u2666', 'K\u2663', 'K\u2660',
     'A\u2665', 'A\u2666', 'A\u2663', 'A\u2660']
 
-    shuffle(cards)
+    #shuffle(cards)
     print("shuffling the cards ...")
     time.sleep(2)
 
@@ -92,18 +92,16 @@ def check_for_quartet(cards):
     counter = 0
     quartet =['7','8','9','10','J','Q','K','A']
     for player in cards:
-        print(player["cards"])
+        print(player["cards"]) #welche karten hatte der spieler davor
         for x in quartet:
             result = [i for i in player["cards"] if i.startswith(x)]
             if len(result) == 4:
                 counter +=1    
                 print(counter)
-                print(result)
                 for n in player["cards"]:
                     if n.startswith(x):
                         player["cards"].remove(n)
-            else: 
-                print("No quartets so far.")
+        print(player["cards"]) #welche karten hatte der spieler danach
 
 
 if __name__ == '__main__':
