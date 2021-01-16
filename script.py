@@ -193,12 +193,23 @@ def check_card(who, which_card, players, player):
                 print("Sorry, they dont have that card.")
                 return False
 
-
+def score(player):
+    print(player["name"]+ " " + str(player["counter"])
 
 
 if __name__ == '__main__':
     number_of_players, players = setup()
     players_setup = card_setup(number_of_players, players)
     players_ckecked_for_quartet = check_for_quartet(players_setup)
-    while True:
+    
+    ending = True
+    score = []
+    while ending:
         implement_turn_logic(players_ckecked_for_quartet)
+        for player in players_ckecked_for_quartet:
+            print("in der main "+ str(player))
+            if len(player["cards"]) > 0:
+                continue
+            else:
+                score(player)
+                ending = False
