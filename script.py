@@ -130,8 +130,7 @@ def restart_exit():
     elif restart == "n":
         print("\nThe programm will me closed...")
         sys.exit(0)
-    #else:
-        #break
+
 
 def check_for_quartet(cards):
     """ Function to check if player has quartet and removing said quartet
