@@ -236,8 +236,6 @@ def implement_turn_logic(players, deck_of_cards):
             which_color_pc = random.choice(color)
             which_number_pc = random.choice(quartet)
 
-            print(who_pc, which_color_pc, which_number_pc)  
-
             if which_color_pc == "HEARTS":
                 which_color_pc = "\u2665"
             elif which_color_pc == "DIAMONDS":
@@ -248,7 +246,7 @@ def implement_turn_logic(players, deck_of_cards):
                 which_color_pc = "\u2660"
             which_card_pc = which_number_pc+ which_color_pc
             time.sleep(2)
-            print("The AI choose asked",who,"for the following card:",which_card_pc)  
+            print("The AI asked",who_pc,"for the following card:",which_card_pc)  
 
             check_card(who_pc, which_card_pc, players, player, deck_of_cards)
             check_for_quartet(players)
