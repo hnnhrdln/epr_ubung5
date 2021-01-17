@@ -47,6 +47,10 @@ def card_setup(number_of_players, players):
     ['9♣', '9♠', '10♥', '10♦', '10♣', '10♠', 'J♥', 'J♦', 'J♣', 'J♠']
     Deck of cards:  ['Q♥', 'Q♦', 'Q♣', 'Q♠', 'K♥', 'K♦', 'K♣', 'K♠', 'A♥', 'A♦', 'A♣', 'A♠']
     ({'name': 'John', 'cards': ['7♥', '7♦', '7♣', '7♠', '8♥', '8♦', '8♣', '8♠', '9♥', '9♦']}, {'name': 'Elie', 'cards': ['9♣', '9♠', '10♥', '10♦', '10♣', '10♠', 'J♥', 'J♦', 'J♣', 'J♠']})
+    >>>card_setup(1,{"name": 'John',"cards":[]})
+    shuffling the cards ...
+    Error in the previous section of the Program.
+    {'name': 'John', 'cards': []}
     >>>
     """
     cards = ['7\u2665', '7\u2666', '7\u2663', '7\u2660',
@@ -72,7 +76,10 @@ def card_setup(number_of_players, players):
                 print(cards[i*cards_per_player:(i+1)*cards_per_player])
                 players[i]["cards"] = cards[i*cards_per_player:(i+1)*cards_per_player]
         print("Deck of cards: ", cards[20:32])
-
+        
+    elif number_of_players < 2:
+        print("Error in the previous section of the Program.")
+        
     else:
         cards_per_player = int(amount_of_cards/number_of_players)
         rest = amount_of_cards % number_of_players  #Stapel
