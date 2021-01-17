@@ -1,15 +1,6 @@
 __author__ = "5641727, Redelin, 6544078, Kervella"
 
-1.Analyse
-
-Wo ein- und ausgeben?
-Ein- und Ausgabeformat festlegen,
-weitere Annahmen angeben,
-Zerlegung in Funktionen/Prozeduren und Signatur (formale Schnittstellen) angeben.
-Geben Sie an, nach welchem Entwurfsmuster (design pattern) Sie arbeiten.
-Ggf. Angaben zum Algorithmus, falls dieser nicht naheliegend ist:
-
-1. Eine generelle Kurzbeschreibung des Systems oder Projektes.
+1. Eine generelle Beschreibung des Projektes.
 
 Dieses Programm implementiert die Logik eines Quartet-Kartenspiels.
 Das User Interface ist die Console. Hier wird auch das Spiel gesteuert durch Eingaben des Nutzers.
@@ -41,8 +32,19 @@ oder fortzusetzen. Falls das Spiel ausschließlich durch den Computer gespielt w
 durch normale Eingaben zu beenden. Das Programm wird so lange durchlaufen, bis ein Spieler keine Karten mehr hat.
 
 
-
-
 2. Eine Anleitung für die Installation und Bedienung.
 
-3. Bekannte Bugs und eventuelle Fehlerbehebungen.“
+Das Spiel verwendet ausschließlich Pythonbasismodule, daher müssen keine Installationen stattfinden.
+Zum Start den Spiels muss das Kommando "python3 script.py" ausgeführt werden.
+
+3. Weitere Annahmen.
+
+-Wir nehmen an, dass bei einem Spiel mit jeder Spielerzahl ein Stapel vorhandne ist.
+-Die Möglichkeit das Spiel neu zu starten oder zu beenden wird nach jeder Nutzereingabe durch einen Prompt ermöglicht.
+-Doctests sind bei allen Funktionen gegeben, bei denen wir es für sinnvoll erachten. Z.B wäre der Input für die Funktion 
+"implement_turn_logic" nicht reproduzierbar,weswegen wir uns hier dagegen entschieden haben.
+
+4. Bekannte Bugs und eventuelle Fehlerbehebungen.
+
+-Spieler mit dem gleichen Namen können für Probleme sorgen, kein Mitspieler mit dem gleichen Namen gewählt
+werden kann. Im schlimmsten Fall auch zum Aufängen des Programms.
