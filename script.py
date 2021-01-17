@@ -71,7 +71,7 @@ def card_setup(number_of_players, players):
                 print("Player",i+1,"has the following cards:")
                 print(cards[i*cards_per_player:(i+1)*cards_per_player])
                 players[i]["cards"] = cards[i*cards_per_player:(i+1)*cards_per_player]
-        print("Stapel: ", cards[20:32])
+        print("Deck of cards: ", cards[20:32])
 
     else:
         cards_per_player = int(amount_of_cards/number_of_players)
@@ -80,7 +80,7 @@ def card_setup(number_of_players, players):
         print("------------------")
         print("Amount of cards:",amount_of_cards)
         print("Cards per player:",cards_per_player)
-        print("The rest is:",rest)
+        print("Deck of cards:",rest)
         print("------------------")
 
         for i in range(0,number_of_players):
