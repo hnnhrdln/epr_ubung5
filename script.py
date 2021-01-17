@@ -44,40 +44,41 @@ def card_setup(number_of_players, players):
     number_of_players: amount of players playing the game
     players: dictionary with all the information of all the players
     >>> card_setup(2,({"name":'John',"cards":[]},{"name":'Elie',"cards":[]}))
+    ---------------------------------
     shuffling the cards ...
-    Player 1 has the following cards:
+    ---------------------------------
+    John has the following cards:
     ['9♥', '10♣', '8♥', 'K♥', '8♣', 'J♥', '8♦', '10♠', 'K♠', 'Q♠']
-    Player 2 has the following cards:
+    Elie has the following cards:
     ['10♥', '10♦', 'J♠', '9♦', '9♣', 'Q♥', 'J♦', 'K♣', 'A♦', '8♠']
     Deck of cards:  ['9♠', 'A♣', 'A♠', 'Q♣', 'Q♦', '7♦', 'J♣', 'K♦', '7♣', '7♥', '7♠', 'A♥']
     (({'name': 'John', 'cards': ['9♥', '10♣', '8♥', 'K♥', '8♣', 'J♥', '8♦', '10♠', 'K♠', 'Q♠']}, {'name': 'Elie', 'cards': ['10♥', '10♦', 'J♠', '9♦', '9♣', 'Q♥', 'J♦', 'K♣', 'A♦', '8♠']}), ['9♠', 'A♣', 'A♠', 'Q♣', 'Q♦', '7♦', 'J♣', 'K♦', '7♣', '7♥', '7♠', 'A♥'])
     >>> card_setup(3,({"name":'John',"cards":[]},{"name":'Elie',"cards":[]},{"name":'Lisa',"cards":[]}))
+    ---------------------------------
     shuffling the cards ...
-    Player 1 has the following cards:
+    ---------------------------------
+    John has the following cards:
     ['8♣', '8♥', '8♦', '10♦', '10♥', 'A♥', 'A♠', 'K♥', 'Q♣', '7♥']
-    Player 2 has the following cards:
+    Elie has the following cards:
     ['10♣', 'K♣', 'K♦', '7♠', '9♣', '8♠', 'Q♠', '9♠', '10♠', '9♦']
-    Player 3 has the following cards:
+    Lisa has the following cards:
     ['Q♥', 'K♠', 'J♦', '9♥', '7♦', 'J♣', 'J♥', 'A♣', 'Q♦', 'J♠']
     Deck of cards: ['7♣', 'A♦']
     (({'name': 'John', 'cards': ['8♣', '8♥', '8♦', '10♦', '10♥', 'A♥', 'A♠', 'K♥', 'Q♣', '7♥']}, {'name': 'Elie', 'cards': ['10♣', 'K♣', 'K♦', '7♠', '9♣', '8♠', 'Q♠', '9♠', '10♠', '9♦']}, {'name': 'Lisa', 'cards': ['Q♥', 'K♠', 'J♦', '9♥', '7♦', 'J♣', 'J♥', 'A♣', 'Q♦', 'J♠']}), ['7♣', 'A♦'])
-    >>> card_setup(4,({"name":'John',"cards":[]},{"name":'Elie',"cards":[]},{"name":'Lisa',"cards":[]},{"name":'Marc',"cards":[]}))
-    shuffling the cards ...
-    Player 1 has the following cards:
-    ['9♥', 'K♣', '10♦', 'Q♥', 'J♠', 'A♣', '8♠', 'A♥']
-    Player 2 has the following cards:
-    ['10♥', 'K♦', 'K♠', 'A♠', 'K♥', 'Q♠', 'Q♦', '10♣']
-    Player 3 has the following cards:
-    ['9♦', 'Q♣', 'J♥', '7♠', '9♠', '7♥', '8♥', '8♣']
-    Player 4 has the following cards:
-    ['J♦', 'A♦', '8♦', '10♠', 'J♣', '7♣', '7♦', '9♣']
-    Deck of cards: []
-    (({'name': 'John', 'cards': ['9♥', 'K♣', '10♦', 'Q♥', 'J♠', 'A♣', '8♠', 'A♥']}, {'name': 'Elie', 'cards': ['10♥', 'K♦', 'K♠', 'A♠', 'K♥', 'Q♠', 'Q♦', '10♣']}, {'name': 'Lisa', 'cards': ['9♦', 'Q♣', 'J♥', '7♠', '9♠', '7♥', '8♥', '8♣']}, {'name': 'Marc', 'cards': ['J♦', 'A♦', '8♦', '10♠', 'J♣', '7♣', '7♦', '9♣']}), [])
     >>> card_setup(1,{"name": 'John',"cards":[]})
+    ---------------------------------
     shuffling the cards ...
+    ---------------------------------
     Error in the previous section of the Program.
     ({'name': 'John', 'cards': []}, [])
-    >>>
+    >>> card_setup(a1,{"name": 'John',"cards":[]})
+    Traceback (most recent call last):
+      ...
+    NameError: name 'a1' is not defined
+    >>> card_setup(3)
+    Traceback (most recent call last):
+      ...
+    TypeError: card_setup() missing 1 required positional argument: 'players'
     """
     cards = ['7\u2665', '7\u2666', '7\u2663', '7\u2660',
     '8\u2665', '8\u2666', '8\u2663', '8\u2660',
@@ -89,7 +90,9 @@ def card_setup(number_of_players, players):
     'A\u2665', 'A\u2666', 'A\u2663', 'A\u2660'] 
 
     random.shuffle(cards)
+    print("---------------------------------")
     print("shuffling the cards ...")
+    print("---------------------------------")
     time.sleep(2)
 
     amount_of_cards = len(cards) 
@@ -98,13 +101,13 @@ def card_setup(number_of_players, players):
         cards_per_player = 10
         for i in range(0,number_of_players):
                 time.sleep(1)
-                print("Player",i+1,"has the following cards:")
+                print(players[i]["name"],"has the following cards:")
                 print(cards[i*cards_per_player:(i+1)*cards_per_player])
                 players[i]["cards"] = cards[i*cards_per_player:(i+1)*cards_per_player]
         print("Deck of cards: ", cards[20:32])
         deck_of_cards = cards[20:32]
         
-    elif number_of_players < 2:
+    elif number_of_players < 2:                             #obsolete if program used correctly
         print("Error in the previous section of the Program.")
         deck_of_cards = []
         
@@ -114,9 +117,10 @@ def card_setup(number_of_players, players):
 
         for i in range(0,number_of_players):
             time.sleep(1)
-            print("Player",i+1,"has the following cards:")
+            print(players[i]["name"],"has the following cards:")
             print(cards[i*cards_per_player:(i+1)*cards_per_player])
             players[i]["cards"] = cards[i*cards_per_player:(i+1)*cards_per_player]
+        time.sleep(1)
         print("Deck of cards:",cards[len(cards)-rest:len(cards)])
         deck_of_cards = cards[len(cards)-rest:len(cards)]
 
@@ -130,11 +134,25 @@ def restart_exit():
     elif restart == "n":
         print("\nThe programm will me closed...")
         sys.exit(0)
-        
 
 def check_for_quartet(cards):
     """ Function to check if player has quartet and removing said quartet
-    cards : list of cards
+    cards : dictionary of one player with his cards
+    >>> check_for_quartet(({"name":'John',"cards":['8♣', '8♥', '8♦','8♠','10♦', '10♥', 'A♥', 'A♠', 'K♥', 'Q♣', '7♥'],"counter": 0},{"name":'Elie',"cards":['9♣', '9♥', '9♦','9♠','Q♦', 'Q♥'],"counter": 0}))
+    ({'name': 'John', 'cards': ['10♦', '10♥', 'A♥', 'A♠', 'K♥', 'Q♣', '7♥'], 'counter': 1}, {'name': 'Elie', 'cards': ['Q♦', 'Q♥'], 'counter': 1})
+    >>> check_for_quartet(({"name":'John',"cards":['10♦', '10♥', 'A♥', 'A♠', 'K♥', 'Q♣', '7♥'],"counter":0},{"name":'Elie',"cards":['Q♦', 'Q♥'],"counter": 0}))
+    ({'name': 'John', 'cards': ['10♦', '10♥', 'A♥', 'A♠', 'K♥', 'Q♣', '7♥'], 'counter': 0}, {'name': 'Elie', 'cards': ['Q♦', 'Q♥'], 'counter': 0})
+    >>> check_for_quartet (({"name":'John',"cards":['8♣', '8♥', '8♦','8♠'], "counter": 1}, {"name":'Elie', "cards":[],"counter":0}))
+    ({'name': 'John', 'cards': [], 'counter': 2}, {'name': 'Elie', 'cards': [], 'counter': 0})
+    >>> check_for_quartet(['8♣', '8♥', '8♦','8♠'])
+    Traceback (most recent call last):
+      ...
+    TypeError: string indices must be integers
+    >>> check_for_quartet(({"name":'John'},{"name":'Elie'}))
+    Traceback (most recent call last):
+      ...
+    KeyError: 'cards'
+    >>>
     """
     quartet =['7','8','9','10','J','Q','K','A']
     for player in cards:
@@ -145,7 +163,6 @@ def check_for_quartet(cards):
                 for n in player["cards"][:]:
                     if n.startswith(x):
                         player["cards"].remove(n)
-        print(player) #welche karten hatte der spieler danach
     
     return cards
 
@@ -195,7 +212,7 @@ def implement_turn_logic(players, deck_of_cards):
                         elif which_color == "SPADES":
                             which_color = "\u2660"
                         which_card = which_number + which_color
-                        print(which_card)
+                        print("The choosen card is:",which_card)
 
                         check_card(who, which_card,players, player, deck_of_cards)
                         check_for_quartet(players)
@@ -210,7 +227,8 @@ def implement_turn_logic(players, deck_of_cards):
                 print("Again")     
 
         else: #pc  
-            print("Selecting Bot Choices")        
+            print("Selecting Bot Choices")
+            time.sleep(2)
                 
             who_pc = random.choice(people)
             while who_pc == player["name"]:
@@ -229,7 +247,8 @@ def implement_turn_logic(players, deck_of_cards):
             elif which_color_pc == "SPADES":
                 which_color_pc = "\u2660"
             which_card_pc = which_number_pc+ which_color_pc
-            print(which_card_pc)  
+            time.sleep(2)
+            print("The AI choose asked",who,"for the following card:",which_card_pc)  
 
             check_card(who_pc, which_card_pc, players, player, deck_of_cards)
             check_for_quartet(players)
@@ -240,16 +259,16 @@ def check_card(who, which_card, players, player, deck_of_cards):
     which_card: the card asked for
     players: dictionary with all the data of all the players
     player: dictionary of the player receiving the potential card
+    deck_of_cards: cards in the deck to pick from in case 2 player
     
     """
     for element in players:
         if element["name"] == who:
             if which_card in element["cards"]:
-                print("IS in deck")
+                print("The asked card is in the players' deck")
                 element["cards"].remove(which_card)
                 player["cards"].append(which_card)
-                print(element["cards"])
-                print(player["cards"])
+                print("Your new hand is:",player["cards"])
                 return True
             else:
                 print("Sorry, they dont have that card.")
@@ -258,17 +277,37 @@ def check_card(who, which_card, players, player, deck_of_cards):
                 return False
 
 def take_a_card(deck_of_cards, players, player):
+    """function to take a card from the given deck
+    only used for 2 players
+    >>> take_a_card(['J♦', 'A♦', '8♦', '10♠'],({"name":'John',"cards":[]},{"name":'Elie',"cards":[]},{"name":'Lisa',"cards":[]},{"name":'Marc',"cards":[]}),{"name":'John',"cards":[]})
+    The card 10♠ was added to your hand!
+    Your new hand is: ['10♠']
+    >>> take_a_card(['J♦', 'A♦', '8♦', '10♠'],({"name":'John',"cards":[]},{"name":'Elie',"cards":[]},{"name":'Lisa',"cards":[]},{"name":'Marc',"cards":[]}),{"name":'John',"cards":['8♥', '8♦', '10♦']})
+    The card 10♠ was added to your hand!
+    Your new hand is: ['8♥', '8♦', '10♦', '10♠']
+    >>> take_a_card([],({"name":'John',"cards":[]},{"name":'Elie',"cards":[]},{"name":'Lisa',"cards":[]},{"name":'Marc',"cards":[]}),{"name":'John',"cards":[]})
+    Sorry, no more cards on the deck...
+    >>> take_a_card(1,2,3)
+    Traceback (most recent call last):
+        ...
+    TypeError: object of type 'int' has no len()
+    >>> take_a_card()
+    Traceback (most recent call last):
+      ...
+    TypeError: take_a_card() missing 3 required positional arguments: 'deck_of_cards', 'players', and 'player'
+    >>>
+    """
     if len(deck_of_cards) > 0:
         card = deck_of_cards[-1]
         player["cards"].append(card)
-        deck_of_cards.remove(card) 
+        deck_of_cards.remove(card)
+        time.sleep(1)
+        print("The card",card,"was added to your hand!")
+        time.sleep(1)
+        print("Your new hand is:",player["cards"])
     else:
-        print("Sorry, no more cards on the deck...")        
-
-def _test():
-    import doctest
-    doctest.testmod()
-          
+        print("Sorry, no more cards on the deck...")
+        
 def compare_results(score):
     """
     Quick comparaison of multiple results from all the players to return a winner
@@ -278,8 +317,13 @@ def compare_results(score):
         if best_score in subarray:
             print("\nThe winner is " + subarray[0])
             print("_____________________________________________")
+            
+def _test():
+    import doctest
+    doctest.testmod()
 
 
+          
 if __name__ == '__main__':
     _test()
     number_of_players, players = setup()
