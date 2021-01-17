@@ -130,6 +130,7 @@ def restart_exit():
     elif restart == "n":
         print("\nThe programm will me closed...")
         sys.exit(0)
+        
 
 def check_for_quartet(cards):
     """ Function to check if player has quartet and removing said quartet
@@ -268,6 +269,17 @@ def _test():
     import doctest
     doctest.testmod()
           
+def compare_results(score):
+    """
+    Quick comparaison of multiple results from all the players to return a winner
+    """
+    best_score = max([player[1] for player in score])
+    for subarray in score:
+        if best_score in subarray:
+            print("\nThe winner is " + subarray[0])
+            print("_____________________________________________")
+
+
 if __name__ == '__main__':
     _test()
     number_of_players, players = setup()
