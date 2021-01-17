@@ -260,7 +260,25 @@ def check_card(who, which_card, players, player, deck_of_cards):
     players: dictionary with all the data of all the players
     player: dictionary of the player receiving the potential card
     deck_of_cards: cards in the deck to pick from in case 2 player
-    
+    >>> check_card('John','J♦',({"name":'John',"cards":['J♦']},{"name":'Elie',"cards":['8♦', '10♠']}),{"name":'John',"cards":['J♦']},['10♠'])
+    The asked card is in the players' deck
+    Your new hand is: ['J♦', 'J♦']
+    True
+    >>> check_card('John','J♦',({"name":'John',"cards":['Q♦']},{"name":'Elie',"cards":['8♦', '10♠']}),{"name":'John',"cards":['Q♦']},['10♠'])
+    Sorry, the player is not in possesion of the card.
+    Take a card from the deck:
+    The card 10♠ was added to your hand!
+    Your new hand is: ['Q♦', '10♠']
+    False
+    >>> check_card(John,5HEART,(John,Elie),John,['10♠'])
+    Traceback (most recent call last):
+      ...                
+    SyntaxError: invalid syntax
+    >>> check_card('John','J♦',({"name":'John',"cards":['Q♦']},{"name":'Elie',"cards":['8♦', '10♠']}),{"name":'John',"cards":['Q♦']})
+    Traceback (most recent call last):
+      ...
+    TypeError: check_card() missing 1 required positional argument: 'deck_of_cards'
+    >>>
     """
     for element in players:
         if element["name"] == who:
@@ -271,8 +289,8 @@ def check_card(who, which_card, players, player, deck_of_cards):
                 print("Your new hand is:",player["cards"])
                 return True
             else:
-                print("Sorry, they dont have that card.")
-                print("Take a card:")
+                print("Sorry, the player is not in possesion of the card.")
+                print("Take a card from the deck:")
                 take_a_card(deck_of_cards, players, player)
                 return False
 
