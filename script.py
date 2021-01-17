@@ -3,7 +3,7 @@ __author__ = "5641727, Redelin, 6544078, Kervella"
 
 
 import time, os, sys, random
-
+random.seed(1234)
 
 def setup():
     players = []
@@ -42,11 +42,11 @@ def card_setup(number_of_players, players):
     >>> card_setup(2,({"name":'John',"cards":[]},{"name":'Elie',"cards":[]}))
     shuffling the cards ...
     Player 1 has the following cards:
-    ['7♥', '7♦', '7♣', '7♠', '8♥', '8♦', '8♣', '8♠', '9♥', '9♦']
+    ['9♥', '10♣', '8♥', 'K♥', '8♣', 'J♥', '8♦', '10♠', 'K♠', 'Q♠']
     Player 2 has the following cards:
-    ['9♣', '9♠', '10♥', '10♦', '10♣', '10♠', 'J♥', 'J♦', 'J♣', 'J♠']
-    Deck of cards:  ['Q♥', 'Q♦', 'Q♣', 'Q♠', 'K♥', 'K♦', 'K♣', 'K♠', 'A♥', 'A♦', 'A♣', 'A♠']
-    ({'name': 'John', 'cards': ['7♥', '7♦', '7♣', '7♠', '8♥', '8♦', '8♣', '8♠', '9♥', '9♦']}, {'name': 'Elie', 'cards': ['9♣', '9♠', '10♥', '10♦', '10♣', '10♠', 'J♥', 'J♦', 'J♣', 'J♠']})
+    ['10♥', '10♦', 'J♠', '9♦', '9♣', 'Q♥', 'J♦', 'K♣', 'A♦', '8♠']
+    Deck of cards:  ['9♠', 'A♣', 'A♠', 'Q♣', 'Q♦', '7♦', 'J♣', 'K♦', '7♣', '7♥', '7♠', 'A♥']
+    ({'name': 'John', 'cards': ['9♥', '10♣', '8♥', 'K♥', '8♣', 'J♥', '8♦', '10♠', 'K♠', 'Q♠']}, {'name': 'Elie', 'cards': ['10♥', '10♦', 'J♠', '9♦', '9♣', 'Q♥', 'J♦', 'K♣', 'A♦', '8♠']})
     >>>card_setup(1,{"name": 'John',"cards":[]})
     shuffling the cards ...
     Error in the previous section of the Program.
@@ -62,7 +62,7 @@ def card_setup(number_of_players, players):
     'K\u2665', 'K\u2666', 'K\u2663', 'K\u2660',
     'A\u2665', 'A\u2666', 'A\u2663', 'A\u2660']
 
-    #shuffle(cards)
+    random.shuffle(cards)
     print("shuffling the cards ...")
     time.sleep(2)
 
