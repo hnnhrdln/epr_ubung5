@@ -36,7 +36,7 @@ def setup():
     return number_of_players, players
 
 def card_setup(number_of_players, players):
-     """setup of the cards with shuffle and the dealing of the cards to all the players
+    """setup of the cards with shuffle and the dealing of the cards to all the players
     number_of_players: amount of players playing the game
     players: dictionary with all the information of all the players
     >>> card_setup(2,({"name":'John',"cards":[]},{"name":'Elie',"cards":[]}))
@@ -82,7 +82,7 @@ def card_setup(number_of_players, players):
     'J\u2665', 'J\u2666', 'J\u2663', 'J\u2660',
     'Q\u2665', 'Q\u2666', 'Q\u2663', 'Q\u2660',
     'K\u2665', 'K\u2666', 'K\u2663', 'K\u2660',
-    'A\u2665', 'A\u2666', 'A\u2663', 'A\u2660']
+    'A\u2665', 'A\u2666', 'A\u2663', 'A\u2660'] 
 
     random.shuffle(cards)
     print("shuffling the cards ...")
@@ -98,6 +98,7 @@ def card_setup(number_of_players, players):
                 print(cards[i*cards_per_player:(i+1)*cards_per_player])
                 players[i]["cards"] = cards[i*cards_per_player:(i+1)*cards_per_player]
         print("Deck of cards: ", cards[20:32])
+        deck_of_cards = cards[20:32]
         
     elif number_of_players < 2:
         print("Error in the previous section of the Program.")
@@ -112,8 +113,9 @@ def card_setup(number_of_players, players):
             print(cards[i*cards_per_player:(i+1)*cards_per_player])
             players[i]["cards"] = cards[i*cards_per_player:(i+1)*cards_per_player]
         print("Deck of cards:",cards[len(cards)-rest:len(cards)])
+        deck_of_cards = cards[len(cards)-rest:len(cards)]
 
-    return players
+    return players, deck_of_cards
 
 def restart_exit():
     restart = input("\nDo you want to restart the program? [y/n] > ")
@@ -141,7 +143,7 @@ def check_for_quartet(cards):
     
     return cards
 
-def implement_turn_logic(players):
+def implement_turn_logic(players, deck_of_cards):
     """ Implementation of the game logic
     players: dictionary of the players and their cards/amount of quartets
     """
@@ -183,7 +185,7 @@ def implement_turn_logic(players):
                         which_card = which_number + which_color
                         print(which_card)
 
-                        check_card(who, which_card,players, player)
+                        check_card(who, which_card,players, player, deck_of_cards)
                         check_for_quartet(players)
 
                     else:
@@ -217,11 +219,11 @@ def implement_turn_logic(players):
             which_card_pc = which_number_pc+ which_color_pc
             print(which_card_pc)  
 
-            check_card(who_pc, which_card_pc, players, player)
+            check_card(who_pc, which_card_pc, players, player, deck_of_cards)
             check_for_quartet(players)
     
 
-def check_card(who, which_card, players, player):
+def check_card(who, which_card, players, player, deck_of_cards):
     """Checking if the asked player is in possesion of the asked card
     who: the person asked to give up a card
     which_card: the card asked for
@@ -240,13 +242,18 @@ def check_card(who, which_card, players, player):
                 return True
             else:
                 print("Sorry, they dont have that card.")
+                print("Take a card:")
+                take_a_card(deck_of_cards, players, player)
                 return False
 
-"""def score(player):
-    print(player["name"]+ " " + str(player["counter"])"""
-    
+def take_a_card(deck_of_cards, players, player):
+    if len(deck_of_cards) > 0:
+        card = deck_of_cards[-1]
+        player["cards"].append(card)
+        deck_of_cards.remove(card) 
+    else:
+        print("Sorry, no more cards on the deck...")        
 
-         
 def _test():
     import doctest
     doctest.testmod()
@@ -255,13 +262,13 @@ def _test():
 if __name__ == '__main__':
     _test()
     number_of_players, players = setup()
-    players_setup = card_setup(number_of_players, players)
+    players_setup, deck_of_cards = card_setup(number_of_players, players)
     players_ckecked_for_quartet = check_for_quartet(players_setup)
     
     ending = True
     score = []
     while ending:
-        implement_turn_logic(players_ckecked_for_quartet)
+        implement_turn_logic(players_ckecked_for_quartet, deck_of_cards)
         for i, player in enumerate(players_ckecked_for_quartet):
             if len(player["cards"]) > 0:
                 continue
