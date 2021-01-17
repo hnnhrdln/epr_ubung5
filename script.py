@@ -262,10 +262,13 @@ if __name__ == '__main__':
     score = []
     while ending:
         implement_turn_logic(players_ckecked_for_quartet)
-        for player in players_ckecked_for_quartet:
-            print("in der main "+ str(player))
+        for i, player in enumerate(players_ckecked_for_quartet):
             if len(player["cards"]) > 0:
                 continue
             else:
-                score(player)
+                for player in players_ckecked_for_quartet:
+                    score.append([player["name"], player["counter"]])
+            
+            if i < len(players_ckecked_for_quartet) - 1:
+                compare_results(score)
                 ending = False
