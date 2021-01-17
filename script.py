@@ -51,6 +51,16 @@ def card_setup(number_of_players, players):
     shuffling the cards ...
     Error in the previous section of the Program.
     {'name': 'John', 'cards': []}
+    >>> card_setup(3,({"name":'John',"cards":[]},{"name":'Elie',"cards":[]},{"name":'Lisa',"cards":[]}))
+    shuffling the cards ...
+    Player 1 has the following cards:
+    ['9♥', 'K♣', '10♦', 'Q♥', 'J♠', 'A♣', '8♠', 'A♥', '10♥', 'K♦']
+    Player 2 has the following cards:
+    ['K♠', 'A♠', 'K♥', 'Q♠', 'Q♦', '10♣', '9♦', 'Q♣', 'J♥', '7♠']
+    Player 3 has the following cards:
+    ['9♠', '7♥', '8♥', '8♣', 'J♦', 'A♦', '8♦', '10♠', 'J♣', '7♣']
+    The rest are: ['7♦', '9♣']
+    ({'name': 'John', 'cards': ['9♥', 'K♣', '10♦', 'Q♥', 'J♠', 'A♣', '8♠', 'A♥', '10♥', 'K♦']}, {'name': 'Elie', 'cards': ['K♠', 'A♠', 'K♥', 'Q♠', 'Q♦', '10♣', '9♦', 'Q♣', 'J♥', '7♠']}, {'name': 'Lisa', 'cards': ['9♠', '7♥', '8♥', '8♣', 'J♦', 'A♦', '8♦', '10♠', 'J♣', '7♣']})
     >>>
     """
     cards = ['7\u2665', '7\u2666', '7\u2663', '7\u2660',
@@ -82,13 +92,7 @@ def card_setup(number_of_players, players):
         
     else:
         cards_per_player = int(amount_of_cards/number_of_players)
-        rest = amount_of_cards % number_of_players  #Stapel
-        print(cards)
-        print("------------------")
-        print("Amount of cards:",amount_of_cards)
-        print("Cards per player:",cards_per_player)
-        print("Deck of cards:",rest)
-        print("------------------")
+        rest = amount_of_cards % number_of_players  #Deck of cards
 
         for i in range(0,number_of_players):
             time.sleep(1)
