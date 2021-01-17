@@ -29,7 +29,7 @@ gewinnt und das Programm wird beendet.
 
 Während des Programmablaufs ist es dem Spieler aber immer möglich nach einer Eingabe das Spiel neu zu starten, zu beenden 
 oder fortzusetzen. Falls das Spiel ausschließlich durch den Computer gespielt wird, ist das Spiel nach dem Setup nicht mehr
-durch normale Eingaben zu beenden. Das Programm wird so lange durchlaufen, bis ein Spieler keine Karten mehr hat.
+durch normale Eingaben zu beenden. Das Programm wird so lange durchlaufen, bis ein Spieler keine Karten mehr hat. Wenn dies geschieht läuft das Programm weiter bis mögliche bots ihren Zug fertig gemacht haben. Dann kommt einen Nachricht mit dem Gewinner des Spiels.
 
 
 2. Eine Anleitung für die Installation und Bedienung.
@@ -38,7 +38,7 @@ Das Spiel verwendet ausschließlich Pythonbasismodule, daher müssen keine Insta
 Zum Start den Spiels muss das Kommando "python3 script.py" ausgeführt werden.
 
 3. Weitere Annahmen.
-
+-Die möglichen Bots sind nicht sehr schlau und wollen nicht unbedingt die fehlenden Karten sondern eine Karte die noch im Spiel ist (keine Probabilitätsrechnung codiert)
 -Wir nehmen an, dass bei einem Spiel mit jeder Spielerzahl ein Stapel vorhandne ist.
 -Die Möglichkeit das Spiel neu zu starten oder zu beenden wird nach jeder Nutzereingabe durch einen Prompt ermöglicht.
 -Doctests sind bei allen Funktionen gegeben, bei denen wir es für sinnvoll erachten. Z.B wäre der Input für die Funktion 
