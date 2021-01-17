@@ -11,18 +11,23 @@ def setup():
     while True:
         try:
             number_of_players = int(input("How many players do you want to play with?"))
+            restart_exit()
             break
         except ValueError:
             continue
 
     while isinstance(number_of_players, int) == False or number_of_players < 2 or number_of_players > 8:
         number_of_players = int(input("How many players do you want to play with?"))
+        restart_exit()
 
     for x in range(0, number_of_players):
         name = input("What is the name of player "+str(x+1)+"?\n")
+        restart_exit()
         player_or_pc = input("Who is the player played by? [me/pc]\n")
+        restart_exit()
         while player_or_pc != "me" and player_or_pc != "pc":
             player_or_pc = input("Try again! Who is the player played by? [me/pc]\n")
+            restart_exit()
 
         if player_or_pc == "me":
             player_or_pc = True
@@ -118,13 +123,15 @@ def card_setup(number_of_players, players):
     return players, deck_of_cards
 
 def restart_exit():
-    restart = input("\nDo you want to restart the program? [y/n] > ")
+    restart = input("\nDo you want to restart the program? [y-restart/n-exit/any-continue] > ")
 
     if restart == "y":
         os.execl(sys.executable, os.path.abspath(__file__), *sys.argv) 
-    else:
+    elif restart == "n":
         print("\nThe programm will me closed...")
         sys.exit(0)
+    #else:
+        #break
 
 def check_for_quartet(cards):
     """ Function to check if player has quartet and removing said quartet
@@ -159,19 +166,25 @@ def implement_turn_logic(players, deck_of_cards):
         #ckech of pc
         if player["player_or_pc"] == True: #mensch
             who = input("Who do you want to take a card from?")
+            restart_exit()
 
             while who not in people or who == player["name"]:
                 who = input("Select another player?")
+                restart_exit()
 
             if who in people and who != player["name"]:
                 which_number = input("Which number do you want?") #blablainput und so
+                restart_exit()
                 while which_number not in quartet:
                     which_number = input("Select another number?")
+                    restart_exit()
 
                 if which_number in quartet:
                     which_color = input("Which color do you want?") #same blabla
+                    restart_exit()
                     while which_color not in color:
                         which_color = input("Select another color?")
+                        restart_exit()
 
                     if which_color in color:
                         if which_color == "HEARTS":
