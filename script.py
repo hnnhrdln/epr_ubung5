@@ -47,7 +47,7 @@ def card_setup(number_of_players, players):
     ['10♥', '10♦', 'J♠', '9♦', '9♣', 'Q♥', 'J♦', 'K♣', 'A♦', '8♠']
     Deck of cards:  ['9♠', 'A♣', 'A♠', 'Q♣', 'Q♦', '7♦', 'J♣', 'K♦', '7♣', '7♥', '7♠', 'A♥']
     ({'name': 'John', 'cards': ['9♥', '10♣', '8♥', 'K♥', '8♣', 'J♥', '8♦', '10♠', 'K♠', 'Q♠']}, {'name': 'Elie', 'cards': ['10♥', '10♦', 'J♠', '9♦', '9♣', 'Q♥', 'J♦', 'K♣', 'A♦', '8♠']})
-    >>>card_setup(1,{"name": 'John',"cards":[]})
+    >>> card_setup(1,{"name": 'John',"cards":[]})
     shuffling the cards ...
     Error in the previous section of the Program.
     {'name': 'John', 'cards': []}
