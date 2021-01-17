@@ -219,11 +219,18 @@ def check_card(who, which_card, players, player):
                 print("Sorry, they dont have that card.")
                 return False
 
-def score(player):
-    print(player["name"]+ " " + str(player["counter"])
+"""def score(player):
+    print(player["name"]+ " " + str(player["counter"])"""
+    
 
+         
+def _test():
+    import doctest
+    doctest.testmod()
+          
 
 if __name__ == '__main__':
+    _test()
     number_of_players, players = setup()
     players_setup = card_setup(number_of_players, players)
     players_ckecked_for_quartet = check_for_quartet(players_setup)
