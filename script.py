@@ -51,7 +51,7 @@ def card_setup(number_of_players, players):
     Player 2 has the following cards:
     ['10♥', '10♦', 'J♠', '9♦', '9♣', 'Q♥', 'J♦', 'K♣', 'A♦', '8♠']
     Deck of cards:  ['9♠', 'A♣', 'A♠', 'Q♣', 'Q♦', '7♦', 'J♣', 'K♦', '7♣', '7♥', '7♠', 'A♥']
-    ({'name': 'John', 'cards': ['9♥', '10♣', '8♥', 'K♥', '8♣', 'J♥', '8♦', '10♠', 'K♠', 'Q♠']}, {'name': 'Elie', 'cards': ['10♥', '10♦', 'J♠', '9♦', '9♣', 'Q♥', 'J♦', 'K♣', 'A♦', '8♠']})
+    (({'name': 'John', 'cards': ['9♥', '10♣', '8♥', 'K♥', '8♣', 'J♥', '8♦', '10♠', 'K♠', 'Q♠']}, {'name': 'Elie', 'cards': ['10♥', '10♦', 'J♠', '9♦', '9♣', 'Q♥', 'J♦', 'K♣', 'A♦', '8♠']}), ['9♠', 'A♣', 'A♠', 'Q♣', 'Q♦', '7♦', 'J♣', 'K♦', '7♣', '7♥', '7♠', 'A♥'])
     >>> card_setup(3,({"name":'John',"cards":[]},{"name":'Elie',"cards":[]},{"name":'Lisa',"cards":[]}))
     shuffling the cards ...
     Player 1 has the following cards:
@@ -61,7 +61,7 @@ def card_setup(number_of_players, players):
     Player 3 has the following cards:
     ['Q♥', 'K♠', 'J♦', '9♥', '7♦', 'J♣', 'J♥', 'A♣', 'Q♦', 'J♠']
     Deck of cards: ['7♣', 'A♦']
-    ({'name': 'John', 'cards': ['8♣', '8♥', '8♦', '10♦', '10♥', 'A♥', 'A♠', 'K♥', 'Q♣', '7♥']}, {'name': 'Elie', 'cards': ['10♣', 'K♣', 'K♦', '7♠', '9♣', '8♠', 'Q♠', '9♠', '10♠', '9♦']}, {'name': 'Lisa', 'cards': ['Q♥', 'K♠', 'J♦', '9♥', '7♦', 'J♣', 'J♥', 'A♣', 'Q♦', 'J♠']})
+    (({'name': 'John', 'cards': ['8♣', '8♥', '8♦', '10♦', '10♥', 'A♥', 'A♠', 'K♥', 'Q♣', '7♥']}, {'name': 'Elie', 'cards': ['10♣', 'K♣', 'K♦', '7♠', '9♣', '8♠', 'Q♠', '9♠', '10♠', '9♦']}, {'name': 'Lisa', 'cards': ['Q♥', 'K♠', 'J♦', '9♥', '7♦', 'J♣', 'J♥', 'A♣', 'Q♦', 'J♠']}), ['7♣', 'A♦'])
     >>> card_setup(4,({"name":'John',"cards":[]},{"name":'Elie',"cards":[]},{"name":'Lisa',"cards":[]},{"name":'Marc',"cards":[]}))
     shuffling the cards ...
     Player 1 has the following cards:
@@ -73,11 +73,11 @@ def card_setup(number_of_players, players):
     Player 4 has the following cards:
     ['J♦', 'A♦', '8♦', '10♠', 'J♣', '7♣', '7♦', '9♣']
     Deck of cards: []
-    ({'name': 'John', 'cards': ['9♥', 'K♣', '10♦', 'Q♥', 'J♠', 'A♣', '8♠', 'A♥']}, {'name': 'Elie', 'cards': ['10♥', 'K♦', 'K♠', 'A♠', 'K♥', 'Q♠', 'Q♦', '10♣']}, {'name': 'Lisa', 'cards': ['9♦', 'Q♣', 'J♥', '7♠', '9♠', '7♥', '8♥', '8♣']}, {'name': 'Marc', 'cards': ['J♦', 'A♦', '8♦', '10♠', 'J♣', '7♣', '7♦', '9♣']})
+    (({'name': 'John', 'cards': ['9♥', 'K♣', '10♦', 'Q♥', 'J♠', 'A♣', '8♠', 'A♥']}, {'name': 'Elie', 'cards': ['10♥', 'K♦', 'K♠', 'A♠', 'K♥', 'Q♠', 'Q♦', '10♣']}, {'name': 'Lisa', 'cards': ['9♦', 'Q♣', 'J♥', '7♠', '9♠', '7♥', '8♥', '8♣']}, {'name': 'Marc', 'cards': ['J♦', 'A♦', '8♦', '10♠', 'J♣', '7♣', '7♦', '9♣']}), [])
     >>> card_setup(1,{"name": 'John',"cards":[]})
     shuffling the cards ...
     Error in the previous section of the Program.
-    {'name': 'John', 'cards': []}
+    ({'name': 'John', 'cards': []}, [])
     >>>
     """
     cards = ['7\u2665', '7\u2666', '7\u2663', '7\u2660',
@@ -107,6 +107,7 @@ def card_setup(number_of_players, players):
         
     elif number_of_players < 2:
         print("Error in the previous section of the Program.")
+        deck_of_cards = []
         
     else:
         cards_per_player = int(amount_of_cards/number_of_players)
