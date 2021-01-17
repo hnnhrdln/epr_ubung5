@@ -36,6 +36,19 @@ def setup():
     return number_of_players, players
 
 def card_setup(number_of_players, players):
+    """setup of the cards with shuffle and the dealing of the cards to all the players
+    number_of_players: amount of players playing the game
+    players: dictionary with all the information of all the players
+    >>> card_setup(2,({"name":'John',"cards":[]},{"name":'Elie',"cards":[]}))
+    shuffling the cards ...
+    player 1 has the following cards:
+    ['7♥', '7♦', '7♣', '7♠', '8♥', '8♦', '8♣', '8♠', '9♥', '9♦']
+    player 2 has the following cards:
+    ['9♣', '9♠', '10♥', '10♦', '10♣', '10♠', 'J♥', 'J♦', 'J♣', 'J♠']
+    Deck of cards:  ['Q♥', 'Q♦', 'Q♣', 'Q♠', 'K♥', 'K♦', 'K♣', 'K♠', 'A♥', 'A♦', 'A♣', 'A♠']
+    ({'name': 'John', 'cards': ['7♥', '7♦', '7♣', '7♠', '8♥', '8♦', '8♣', '8♠', '9♥', '9♦']}, {'name': 'Elie', 'cards': ['9♣', '9♠', '10♥', '10♦', '10♣', '10♠', 'J♥', 'J♦', 'J♣', 'J♠']})
+    >>>
+    """
     cards = ['7\u2665', '7\u2666', '7\u2663', '7\u2660',
     '8\u2665', '8\u2666', '8\u2663', '8\u2660',
     '9\u2665', '9\u2666', '9\u2663', '9\u2660',
@@ -89,6 +102,9 @@ def restart_exit():
         sys.exit(0)
 
 def check_for_quartet(cards):
+    """ Function to check if player has quartet and removing said quartet
+    cards : list of cards
+    """
     quartet =['7','8','9','10','J','Q','K','A']
     for player in cards:
         for x in quartet:
@@ -103,6 +119,9 @@ def check_for_quartet(cards):
     return cards
 
 def implement_turn_logic(players):
+    """ Implementation of the game logic
+    players: dictionary of the players and their cards/amount of quartets
+    """
     people = []
     for player in players:
         people.append(player["name"])
@@ -179,7 +198,14 @@ def implement_turn_logic(players):
             check_for_quartet(players)
     
 
-def check_card(who, which_card, players, player):  
+def check_card(who, which_card, players, player):
+    """Checking if the asked player is in possesion of the asked card
+    who: the person asked to give up a card
+    which_card: the card asked for
+    players: dictionary with all the data of all the players
+    player: dictionary of the player receiving the potential card
+    
+    """
     for element in players:
         if element["name"] == who:
             if which_card in element["cards"]:
