@@ -1,7 +1,7 @@
 """Quartett"""
 __author__ = "5641727, Redelin, 6544078, Kervella"
 
-from random import shuffle
+
 import time, os, sys, random
 
 
