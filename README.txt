@@ -12,7 +12,7 @@ die Spieler verteilt wird. Im Falle von 2 Spielern erhält jeder Spieler 10 Kart
 liegen bleiben. Bei mehr als 2 Spielern werden die Karten gleichmäßig an alle Spieler verteilt.
 
 Bevor das tatsächliche Spiel beginnt wird in der Funktion "check_for_quartet" nach bereits vorhandenen Qartetten in den Händen 
-der Spieler geprüft. Falls ein oder mehrere Qartette gefunden werden, wird ein einsprechender Counter im Profil der 
+der Spieler geprüft. Falls ein oder mehrere Quartette gefunden werden, wird ein einsprechender Counter im Profil der 
 Spieler erhöht und die Karten abgelegt.
 
 Das Herzstück des Programms ist die Funktion "implement_turn_logic". Hier werden die Spieler nacheinander dazu aufgefordert
