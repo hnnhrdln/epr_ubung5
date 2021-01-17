@@ -41,9 +41,9 @@ def card_setup(number_of_players, players):
     players: dictionary with all the information of all the players
     >>> card_setup(2,({"name":'John',"cards":[]},{"name":'Elie',"cards":[]}))
     shuffling the cards ...
-    player 1 has the following cards:
+    Player 1 has the following cards:
     ['7♥', '7♦', '7♣', '7♠', '8♥', '8♦', '8♣', '8♠', '9♥', '9♦']
-    player 2 has the following cards:
+    Player 2 has the following cards:
     ['9♣', '9♠', '10♥', '10♦', '10♣', '10♠', 'J♥', 'J♦', 'J♣', 'J♠']
     Deck of cards:  ['Q♥', 'Q♦', 'Q♣', 'Q♠', 'K♥', 'K♦', 'K♣', 'K♠', 'A♥', 'A♦', 'A♣', 'A♠']
     ({'name': 'John', 'cards': ['7♥', '7♦', '7♣', '7♠', '8♥', '8♦', '8♣', '8♠', '9♥', '9♦']}, {'name': 'Elie', 'cards': ['9♣', '9♠', '10♥', '10♦', '10♣', '10♠', 'J♥', 'J♦', 'J♣', 'J♠']})
