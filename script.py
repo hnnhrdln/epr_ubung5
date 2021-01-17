@@ -1,7 +1,6 @@
 """Quartett"""
 __author__ = "5641727, Redelin, 6544078, Kervella"
 
-
 import time, os, sys, random
 random.seed(1234)
 
@@ -132,7 +131,6 @@ def restart_exit():
         print("\nThe programm will me closed...")
         sys.exit(0)
 
-
 def check_for_quartet(cards):
     """ Function to check if player has quartet and removing said quartet
     cards : list of cards
@@ -235,7 +233,6 @@ def implement_turn_logic(players, deck_of_cards):
             check_card(who_pc, which_card_pc, players, player, deck_of_cards)
             check_for_quartet(players)
     
-
 def check_card(who, which_card, players, player, deck_of_cards):
     """Checking if the asked player is in possesion of the asked card
     who: the person asked to give up a card
@@ -271,7 +268,6 @@ def _test():
     import doctest
     doctest.testmod()
           
-
 if __name__ == '__main__':
     _test()
     number_of_players, players = setup()
