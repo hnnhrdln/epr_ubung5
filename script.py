@@ -331,8 +331,12 @@ def compare_results(score):
     best_score = max([player[1] for player in score])
     for subarray in score:
         if best_score in subarray:
+            print("#############################################")
+            print("_____________________________________________")
             print("\nThe winner is " + subarray[0])
             print("_____________________________________________")
+            print("#############################################")
+            restart_exit()
             
 def _test():
     import doctest
