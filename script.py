@@ -180,7 +180,7 @@ def implement_turn_logic(players, deck_of_cards):
     for player in players:
         print("It's " +player["name"]+"'s turn.")
         #ckech of pc
-        if player["player_or_pc"] == True: #mensch
+        if player["player_or_pc"] == True: #human
             who = input("Who do you want to take a card from?")
             restart_exit()
 
