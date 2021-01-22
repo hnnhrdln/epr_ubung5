@@ -189,14 +189,14 @@ def implement_turn_logic(players, deck_of_cards):
                 restart_exit()
 
             if who in people and who != player["name"]:
-                which_number = input("Which number do you want?") #blablainput und so
+                which_number = input("Which number do you want?") 
                 restart_exit()
                 while which_number not in quartet:
                     which_number = input("Select another number?")
                     restart_exit()
 
                 if which_number in quartet:
-                    which_color = input("Which color do you want?") #same blabla
+                    which_color = input("Which color do you want?") 
                     restart_exit()
                     while which_color not in color:
                         which_color = input("Select another color?")
